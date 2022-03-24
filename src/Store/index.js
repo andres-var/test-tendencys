@@ -8,8 +8,9 @@ import localForage                      from "localforage";
 import rootReducer from "./Reducers";
 
 const persistConfig = {
-	key     : "root",
-	storage : localForage,
+	key       : "root",
+	storage   : localForage,
+	blacklist : ["orderReducer"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
