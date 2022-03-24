@@ -18,7 +18,7 @@ export const AddProuctContainer = ({
 	add,
 }) => {
 
-	const { register, handleSubmit, formState : { errors } } = useForm({
+	const { register, handleSubmit, formState : { errors }, reset } = useForm({
 		defaultValues : {
 			sku      : "",
 			name     : "",
@@ -30,16 +30,13 @@ export const AddProuctContainer = ({
 
 	const onSubmit = (data) => {
 		add(data);
-	};
-
-	const onError = (error) => {
-		console.log(error);
+		reset();
 	};
 
 	return (
 		<AddProuct
 			errors={errors}
-			onSubmit={handleSubmit(onSubmit, onError)}
+			onSubmit={handleSubmit(onSubmit)}
 			register={register}
 		/>
 	);
